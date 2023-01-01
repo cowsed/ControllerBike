@@ -3,21 +3,19 @@
 // Create the Joystick
 Joystick_ Joystick;
 
-// Constant that maps the physical pin to the joystick button.
+const int JoyXPin = A1;
+const int JoyYPin = A0;
+
 const int HalPIN = PIN2;
+const int AccelButton = 0;
 
 const int NumButtons = 5;
 
 int ControllerButtonPins[NumButtons] = { PIN4, PIN3, PIN5, PIN6, PIN7 };
-
-const int JoyXPin = A1;
-const int JoyYPin = A0;
-
-const int AccelButton = 0;
-
-
 int GCButtons[NumButtons] = { 1, 2, 3, 4, 5 };
 int lastButtonReadings[NumButtons] = { 0, 0, 0, 0, 0 };
+
+
 
 const int every_millis = 1000;
 const int sensorReadCooldownMillis = 100;
@@ -59,7 +57,6 @@ void setup() {
   while (!Serial) {};
 
   attachInterrupt(digitalPinToInterrupt(HalPIN), tickReading, FALLING);
-  interrupts();
 
   // Joystick stuff
   Joystick.begin();
