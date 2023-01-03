@@ -123,7 +123,7 @@ void loop() {
     }
   }
 
-  Serial.println(Accel_PWM_Frame_Pointer);
+  // Serial.println(Accel_PWM_Frame_Pointer);
 
   delay(5);
 }
